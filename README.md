@@ -2,11 +2,11 @@
   <img src="iotbotapp.png" width="375"/>
 </p>
 
-This is an android app to control the IoTbot: https://github.com/edlima/iotbot
+This is an android app that controls the IoTbot: https://github.com/edlima/iotbot
 
 The app controls the robot movements via AWS IoT as well as retrieves the images taken by the robot camera from an S3 bucket.
 
-You'll need a Cognito Unatuthenticated Role with the following Inline Policy:
+You'll need a S3 bucket and a Cognito Unatuthenticated Role with the following Inline Policy:
 
 ```
 {
