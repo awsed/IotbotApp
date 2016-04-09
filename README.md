@@ -33,6 +33,36 @@ You'll need a Cognito Unatuthenticated Role with the following Inline Policy:
 }
 ```
 
-And the AWSIoTFullAccess policy attached as Managed Policy.
+And the AWSIoTFullAccess policy attached as Managed Policy. The Trust Relashionships should be:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "iot.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    },
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "cognito-identity.amazonaws.com"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "cognito-identity.amazonaws.com:aud": "<Identity Pool>"
+        },
+        "ForAnyValue:StringLike": {
+          "cognito-identity.amazonaws.com:amr": "unauthenticated"
+        }
+      }
+    }
+  ]
+}
+```
 
 After executing the app for the first time and clicking on the CONNECT button, a new certificate will be created on the AWS IoT console (https://console.aws.amazon.com/iot/home). The certificate needs to be attached with the IoT thing and the IoT policy. 
