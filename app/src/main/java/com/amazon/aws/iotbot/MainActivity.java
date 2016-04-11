@@ -56,9 +56,9 @@ public class MainActivity extends Activity {
     // AWS IoT permissions.
     private static final String COGNITO_POOL_ID = "<Cognito Unatuthenticated Pool ID";
     // Name of the AWS IoT policy to attach to a newly created certificate
-    private static final String AWS_IOT_POLICY_NAME = "IoT Policy ARN";
+    private static final String AWS_IOT_POLICY_NAME = "<IoT Policy ARN>";
     // Region of AWS IoT
-    private static final Regions MY_REGION = Regions.AP_NORTHEAST_1;
+    private static final Regions MY_REGION = Regions.US_EAST_1;
     // Filename of KeyStore file on the filesystem
     private static final String KEYSTORE_NAME = "iotbot.bks";
     // Password for the private key in the KeyStore
